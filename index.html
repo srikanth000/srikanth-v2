@@ -8,8 +8,8 @@
 </head>
 
 <body>
-  <div class="container mx-auto lg:w-6/12">
-    <div class="inline-grid grid-cols-2 sm:grid-rows-2 justify-evenly items-center">
+  <div class="grid justify-items-center m-12 align-middle">
+    <div class="inline-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-evenly items-center lg:w-6/12">
       <div class="grid justify-items-center px-4 py-4 ">
         <!-- <img class="max-h-60 z-10 transition rounded-full hover:-scale-x-0 hover:opacity-0 duration-500 ease-in"
           src="/src/assets/profile.jpg"></img> -->
@@ -17,8 +17,9 @@
       </div>
       <div class="grid justify-items-start p-4">
         <div class="grid items-baseline py-2">
-          <p class="text-xl">Hi,
-            <span class="text-xl font-bold">I am</span>
+          <p class="text-xl">Hello
+            <span>&#128075,</span>
+            <span class="text-xl md:bg-red font-bold">I am</span>
           </p>
         </div>
         <div class="grid first:items-baseline" py-2>
@@ -37,17 +38,27 @@
           </p>
         </div>
         <div class="flex flex-wrap mt-2 gap-2">
-          <button type="button"
+          <button type="button" onclick="redirectToResume()"
             class="rounded-lg px-4 py-2  bg-indigo-500 text-blue-100 hover:bg-blue-600 duration-300">
             Resume
           </button>
-          <button type="button"
+          <button type="button" onclick="mailTo()"
             class="rounded-lg px-4 py-2  bg-teal-500 text-blue-100 hover:bg-blue-600 duration-300">Lets
             Talk</button>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function redirectToResume() {
+      window.open('https://drive.google.com/file/d/16_wWVWKzDHNhhWFAtk7c8p-mv5L_nfE5/view?usp=sharing', '_blank')
+    }
+
+    function mailTo() {
+      window.location.href = 'mailto:margamsrikanth.cs7@gmail.com'
+    }
+
+  </script>
 </body>
 
 </html>
