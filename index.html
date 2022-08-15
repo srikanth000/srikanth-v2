@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./dist/output.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NND21PERF0"></script>
+
 </head>
 
 <body class="border-blue-300 border-2 h-1">
@@ -70,6 +72,11 @@
     </div>
   </div>
   <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-NND21PERF0');
     function redirectToResume() {
       window.open('https://drive.google.com/file/d/16_wWVWKzDHNhhWFAtk7c8p-mv5L_nfE5/view?usp=sharing', '_blank')
     }
