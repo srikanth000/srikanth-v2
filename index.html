@@ -7,13 +7,33 @@
   <link href="./dist/output.css" rel="stylesheet">
 </head>
 
-<body>
-  <div class="grid justify-items-center m-12 align-middle">
+<body class="border-blue-300 border-2 h-1">
+  <div class="grid justify-items-center m-4 md:m-12 lg:m-20 align-middle">
     <div class="inline-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-evenly items-center lg:w-6/12">
       <div class="grid justify-items-center px-4 py-4 ">
         <!-- <img class="max-h-60 z-10 transition rounded-full hover:-scale-x-0 hover:opacity-0 duration-500 ease-in"
           src="/src/assets/profile.jpg"></img> -->
-        <img class="max-h-60 z-10 transition rounded-full" src="./assets/profile.jpg"></img>
+        <!-- <img class="max-h-60 z-10 transition rounded-full border-green-500 border-2" src="./assets/profile.jpg"></img> -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front rounded-full">
+              <img src="./assets/profile.png" alt="Avatar">
+            </div>
+            <div class="flip-card-back">
+              <div class="grid justify-center">
+                <p class="text-md mt-14 mb-4">find me on👇</p>
+                <div class="grid gap-x-3 justify-center align-middle grid-cols-3">
+                  <img src="./assets/github-logo.png" onclick="redirect('github')" class="ml-4 hover:cursor-pointer"
+                    width="20px" height="20px" alt="Avatar">
+                  <img src="./assets/linkedin.png" onclick="redirect('linkedin')" class="ml-4 hover:cursor-pointer"
+                    width="20px" height="20px" alt="Avatar">
+                  <img src="./assets/twitter.png" onclick="redirect('twitter')" class="ml-4 hover:cursor-pointer"
+                    width="20px" height="20px" alt="Avatar">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="grid justify-items-start p-4">
         <div class="grid items-baseline py-2">
@@ -27,13 +47,13 @@
         </div>
         <div class="grid items-baseline py-2">
           <p class="text-xl">I build things for web,
-            <span class="text-xl font-bold">1px at a time</span>
+            <span class="text-xl font-bold">one pixel at a time</span>
           </p>
         </div>
         <div class="grid first:items-baseline py-2">
           <p class="text-sm">
             I’m a software engineer, specializing in building user interfaces and scaling web apps. Currently on
-            mission to move the work better at
+            mission to move the world better at
             <span class="text-md font-bold">Ridecell</span>
           </p>
         </div>
@@ -56,6 +76,15 @@
 
     function mailTo() {
       window.location.href = 'mailto:margamsrikanth.cs7@gmail.com'
+    }
+
+    function redirect(key) {
+      console.log(key)
+      const profiles = {
+        'github': 'https://github.com/srikanth000', 'linkedin': 'https://www.linkedin.com/in/srikanthmargam-cs7/',
+        'twitter': 'https://twitter.com/SrikanthMargam7'
+      }
+      window.open(profiles[key], '_blank')
     }
 
   </script>

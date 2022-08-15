@@ -555,51 +555,87 @@ html {
   --tw-backdrop-sepia:  ;
 }
 
-.container {
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
+  border-radius: 250px;
+  perspective: 1000px;
+  /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+
+.flip-card-inner {
+  position: relative;
   width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
+/* Do an horizontal flip when you move the mouse over the flip box container */
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
+/* Position the front and back side */
+
+.flip-card-front,
+  .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+  border-radius: 100%;
 }
 
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
+/* Style the front side (fallback if image is missing) */
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 100%;
+  border: 1px solid blue;
 }
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
+/* Style the back side */
+
+.flip-card-back {
+  background-color: #687096;
+  width: 250px;
+  height: 250px;
+  color: white;
+  transform: rotateY(180deg);
+  border: 1px solid white;
+  border-radius: 100%;
 }
 
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
+/* ... */
 
 .z-10 {
   z-index: 10;
 }
 
-.m-12 {
-  margin: 3rem;
+.m-4 {
+  margin: 1rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .mt-2 {
@@ -618,12 +654,20 @@ html {
   display: inline-grid;
 }
 
+.h-1 {
+  height: 0.25rem;
+}
+
 .max-h-60 {
   max-height: 15rem;
 }
 
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-wrap {
@@ -658,12 +702,31 @@ html {
   gap: 0.5rem;
 }
 
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-blue-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(147 197 253 / var(--tw-border-opacity));
+}
+
+.border-green-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(34 197 94 / var(--tw-border-opacity));
 }
 
 .bg-indigo-500 {
@@ -752,6 +815,10 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
 .hover\:bg-blue-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
@@ -762,12 +829,20 @@ html {
 }
 
 @media (min-width: 768px) {
+  .md\:m-12 {
+    margin: 3rem;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
+  .lg\:m-20 {
+    margin: 5rem;
+  }
+
   .lg\:w-6\/12 {
     width: 50%;
   }
